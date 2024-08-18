@@ -1,0 +1,21 @@
+{
+  "name": "temp-name",
+  "version": "1.0.0",
+  "description": "An extendible object validator",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "lint": "npx eslint ./**/*{.js,.cjs}",
+    "format": "npx eslint ./**/*{.js,.cjs} --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^5.1.3"
+  }
+}

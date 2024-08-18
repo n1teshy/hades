@@ -1,0 +1,2 @@
+- message should be accepted as a function too so users can use the value to write decide on messages
+- add typescript classes?

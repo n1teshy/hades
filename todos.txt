@@ -1,2 +1,3 @@
 - add a parameter to validateMessage that controls if functions are allowed
+- enum for every field?
 - add typescript classes?

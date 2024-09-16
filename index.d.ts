@@ -6,8 +6,9 @@ type validationSchema = { [key: string]: validationSchema | Field | Validator };
 export class Field {
   constructor(name: string, typeViolationMsg?: string);
   require(message?: string): this;
+  checkRequired(value: any): null | string;
   test(
-    testFn: (value: any) => boolean,
+    testFn: (value: any) => boolean | Promise<boolean>,
     message?: validationMessageFn<any> | string
   ): this;
 }

@@ -1,6 +1,7 @@
 type validationMessageFn<T> = (value: T) => string;
 type measurable = string | any[] | number;
 type validationErrors = { [key: string]: string | validationErrors };
+type validationSchema = { [key: string]: validationSchema | Field | Validator };
 
 export class Field {
   constructor(name: string, typeViolationMsg?: string);
@@ -47,6 +48,7 @@ export class ObjectField extends MeasurableField {
 }
 
 export class Validator {
+  constructor(schema: validationSchema);
   validate(data: any, path?: string): null | validationErrors;
 }
 

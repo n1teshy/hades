@@ -13,7 +13,7 @@ export class Field {
 
 export class MeasurableField extends Field {
   min(value: number, message?: string): this;
-  min(value: number, message?: string): this;
+  max(value: number, message?: string): this;
 }
 
 export class TextField extends MeasurableField {

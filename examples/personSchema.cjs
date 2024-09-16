@@ -62,7 +62,7 @@ const personSchema = {
         await sleep(1);
         return true;
       }),
-      zip: new TextField().require().expr(/^\d+$/),
+      zip: new TextField("Zip").require().expr(/^\d+$/),
     },
   },
   employment: {

@@ -1,11 +1,15 @@
 {
   "name": "hades",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "An extendible object validator",
   "main": "./index.cjs",
   "scripts": {
     "lint": "npx eslint ./**/*{.js,.cjs}",
     "format": "npx eslint ./**/*{.js,.cjs} --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n1teshy/hades.git"
   },
   "keywords": [],
   "author": "",

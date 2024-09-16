@@ -13,7 +13,7 @@ npm install hades
 ### Basic Usage
 
 ```javascript
-const { TextField, Validator } = require("./index.cjs");
+const { TextField, Validator } = require("hades");
 
 const existingUsernames = ["batman", "the_dark_knight"];
 

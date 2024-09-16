@@ -4,7 +4,6 @@ const {
   BoolField,
   ArrayField,
   ObjectField,
-  // Validator,
   AsyncValidator,
 } = require("../index.cjs");
 
@@ -77,7 +76,7 @@ const personSchema = {
 const validator = new AsyncValidator(personSchema);
 
 (async () => {
-  const errors = await validator.validate({
+  await validator.validate({
     name: { first: "First name" },
     gender: "male",
     ageInYears: 21,
@@ -103,6 +102,4 @@ const validator = new AsyncValidator(personSchema);
       experienceInYears: 2,
     },
   });
-  // eslint-disable-next-line no-console
-  console.log(errors);
 })();

@@ -17,7 +17,7 @@ const userSchema = {
 };
 
 const validator = new Validator(userSchema);
-console.log(validator.validate({}));
+validator.validate({});
 /* returns
 {
   username: 'Username is required',
@@ -25,10 +25,8 @@ console.log(validator.validate({}));
 }
 */
 
-console.log(
-  validator.validate({
-    username: "measly_nerd",
-    password: "measly_nerd's password",
-  }),
-);
-/* returns null */
+validator.validate({
+  username: "measly_nerd",
+  password: "measly_nerd's password",
+});
+// returns null

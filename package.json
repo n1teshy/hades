@@ -1,6 +1,6 @@
 {
   "name": "hades",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "An extendible object validator",
   "main": "./index.cjs",
   "scripts": {
@@ -11,9 +11,9 @@
     "type": "git",
     "url": "https://github.com/n1teshy/hades.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["JSON validation", "Object validation"],
+  "author": "Nitesh Yadav",
+  "license": "MIT",
   "devDependencies": {
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",

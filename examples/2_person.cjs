@@ -7,12 +7,17 @@ const {
   AsyncValidator,
 } = require("../index.cjs");
 
+// this file implements validation for a person's data
+
+// a copy of python's sleep function, to simulate the time spent
+// doing asynchronous jobs i.e api calls, file reads etc
 async function sleep(seconds) {
   return new Promise((res) => {
     setTimeout(res, seconds * 1000);
   });
 }
 
+// define fields to check in data
 const personSchema = {
   name: {
     first: new TextField("First name").require(),
@@ -42,17 +47,18 @@ const personSchema = {
       .min(10)
       .max(11)
       .expr(/^\d+$/)
-      .test(async () => {
+      .test(async (phoneNo) => {
         await sleep(1);
-        return true;
-      }),
+        // phone number must include one of the universal constants
+        return phoneNo.includes("69") || phoneNo.includes("420");
+      }, "gotta have those constants bro"),
     email: new TextField("Email")
       .require()
       .expr(/^[a-zA-Z_-]+@[a-zA-Z_-]+\.[a-zA-Z_-]{2,}/)
-      .test(async () => {
+      .test(async (email) => {
         await sleep(1);
-        return true;
-      }),
+        return email.includes("chad");
+      }, "email is not chad enough"),
     address: {
       country: new TextField("Country").require(),
       state: new TextField("State").require(),
@@ -76,30 +82,41 @@ const personSchema = {
 const validator = new AsyncValidator(personSchema);
 
 (async () => {
-  await validator.validate({
-    name: { first: "First name" },
+  const nerdData = {
+    name: { first: "measly", last: "nerd" },
     gender: "male",
     ageInYears: 21,
-    hobbies: [],
-    isANerd: false,
-    relationships: { someone: "someone" },
+    hobbies: ["not seeing sunlight for days"],
+    isANerd: true, // duh
+    relationships: { unknownRedditor: "fwend", imaginaryGirl: "gf" },
     contact: {
-      phoneNo: "9082229626",
-      email: "nitesh@xyz.com",
+      phoneNo: "3141592653",
+      email: "nerd@home.com",
       address: {
         country: "India",
-        state: "Tamilnadu",
-        city: "Chennai",
-        street: "VS mudali st",
-        locality: "saidapet railway station",
+        state: "Ohio",
+        city: "random city",
+        street: "random street",
+        locality: "random locality",
         zip: "000000",
       },
     },
     employment: {
-      company: "Zifo RnD",
-      role: "Problem solver",
-      previousRoles: ["Problem solver"],
+      company: "random company",
+      role: "random role",
+      previousRoles: ["ramdom roles"],
       experienceInYears: 2,
     },
-  });
+  };
+  // eslint-disable-next-line no-console
+  console.log(await validator.validate(nerdData));
+  /* prints
+  {
+    relationships: "who you foolin' bro? I know you don't have a gf",
+    contact: {
+      phoneNo: 'gotta have those constants bro',
+      email: 'email is not chad enough'
+    }
+  }
+  */
 })();
